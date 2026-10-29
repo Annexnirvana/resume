@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anwita – Resume</title>
+  <style>
+    :root {
+      --bg: #f3f4f6;
+      --bar: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #2563eb;
+      --accent-text: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111418;
+        --bar: #1a1d23;
+        --text: #f3f4f6;
+        --muted: #9ca3af;
+        --line: #2b2f37;
+        --accent: #60a5fa;
+        --accent-text: #0b1220;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 16px;
+      background: var(--bar);
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .actions { display: flex; gap: 8px; }
+
+    .btn {
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--accent-text);
+    }
+    .btn:hover { filter: brightness(0.95); }
+    .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    main { flex: 1; min-height: 0; }
+    object { display: block; width: 100%; height: 100%; border: 0; }
+
+    .fallback {
+      max-width: 40ch;
+      margin: 20vh auto 0;
+      padding: 0 16px;
+      text-align: center;
+      color: var(--muted);
+    }
+    .fallback .btn { display: inline-block; margin-top: 12px; }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 0.9rem; }
+      .btn { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Anwita – Resume</h1>
+    <div class="actions">
+      <a class="btn" href="pdf.pdf" target="_blank" rel="noopener">Open in new tab</a>
+      <a class="btn primary" href="pdf.pdf" download>Download</a>
+    </div>
+  </header>
+
+  <main>
+    <object data="pdf.pdf#view=FitH" type="application/pdf" aria-label="Resume PDF">
+      <div class="fallback">
+        <p>Your browser can't show PDFs inline.</p>
+        <a class="btn primary" href="pdf.pdf" target="_blank" rel="noopener">Open the resume</a>
+      </div>
+    </object>
+  </main>
+</body>
+</html>
